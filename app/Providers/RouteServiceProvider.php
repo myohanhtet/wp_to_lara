@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Post;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Spatie\Tags\Tag;
 
@@ -25,8 +26,6 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-
         parent::boot();
         $this->registerRouteModelBindings();
     }
@@ -38,12 +37,10 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map()
     {
-        // $this->mapApiRoutes();
 
-        // $this->mapWebRoutes();
-
-        $this->mapFrontRoutes();
         $this->mapBackRoutes();
+        $this->mapFrontRoutes();
+
     }
 
     protected function mapBackRoutes()
@@ -51,6 +48,10 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware('web')
             ->namespace($this->namespace . '\\Back')
             ->group(function () {
+                Route::get('foo', function () {
+                    return view('welcome');
+                });
+
                 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
                 Route::post('/login', 'Auth\LoginController@login');
                 Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
@@ -101,12 +102,12 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function mapWebRoutes()
-    {
-        Route::middleware('web')
-            ->namespace($this->namespace)
-            ->group(base_path('routes/web.php'));
-    }
+    // protected function mapWebRoutes()
+    // {
+    //     Route::middleware('web')
+    //         ->namespace($this->namespace)
+    //         ->group(base_path('routes/web.php'));
+    // }
 
     /**
      * Define the "api" routes for the application.

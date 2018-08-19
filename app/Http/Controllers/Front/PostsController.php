@@ -9,7 +9,6 @@ class PostsController extends Controller
 {
     public function detail(Post $post)
     {
-
         return view('front.posts.detail', compact('post'));
     }
 }

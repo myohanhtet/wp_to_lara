@@ -15,6 +15,18 @@
 <meta property="og:description" content="Mawgyuncity is a web for Mawgyun Township.">
 <meta property="og:url" content="{{ request()->fullUrl() }}">
 
+<script type='application/ld+json'>
+    {
+        "@context":"http:\/\/schema.org",
+        "@type":"WebSite",
+        "@id":"#website",
+        "url":"https:\/\/mawgyuncity.com\/",
+        "name":"Mawgyuncity.com",
+        "sameAs": ["https://facebook.com/mawgyuncity", "https://plus.google.com/mawgyuncity", "https://twitter.com/mawgyuncity"],
+        "alternateName":"Mawgyuncity web for only Mawgyun Township"
+    }
+</script>
+
 {{-- Update list
 
 <meta property="og:image" content="#URL">

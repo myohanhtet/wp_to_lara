@@ -19,6 +19,7 @@
 
   <body>
 
+
     @include('front.layouts.nav')
 
     <!-- Page Content -->
@@ -30,9 +31,9 @@
     <!-- /.container -->
 
     <!-- Footer -->
-    <footer class="py-5 bg-dark">
+    <footer class="py-5 bg-dark" itemscope itemtype="http://schema.org/WPFooter">
       <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+        <p class="m-0 text-center text-white">Copyright &copy; <span itemprop="copyrightHolder" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Your Website </span></span><span itemprop="copyrightYear">2017</span></p>
       </div>
       <!-- /.container -->
     </footer>

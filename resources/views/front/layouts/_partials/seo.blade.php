@@ -9,9 +9,15 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="format-detection" content="telephone=no">
 <meta name="viewport" content="width = 320, initial-scale = 2.3, user-scalable = no">
-
+<meta name="fb:page_id" content="229316417188783"/>
+<meta name="og:latitude" content="16.3772"/>
+<meta name="og:longitude" content="95.26488"/>
+<meta name="og:postal_code" content="10221"/>
+<meta name="og:locality" content="Mawlamyinegyunn"/>
+<meta name="country_name" content="Myanmar"/>
 <meta property="og:site_name" content="Mawgyuncity.com">
-<meta property="og:locale" content="my-MM">
+<meta property="og:locale" content="my_MM">
+<meta property="og:locale:alternate" content="en_US" />
 <meta property="og:description" content="Mawgyuncity is a web for Mawgyun Township.">
 <meta property="og:url" content="{{ request()->fullUrl() }}">
 
@@ -26,20 +32,5 @@
         "alternateName":"Mawgyuncity web for only Mawgyun Township"
     }
 </script>
-
-{{-- Update list
-
-<meta property="og:image" content="#URL">
-<meta name="fb:page_id" content="43929265776" />
-<meta name="og:email" content="me@example.com"/>
-
-<meta name="og:latitude" content="37.416343"/>
-<meta name="og:longitude" content="-122.153013"/>
-<meta name="og:street-address" content="1601 S California Ave"/>
-<meta name="og:locality" content="Palo Alto"/>
-<meta name="og:region" content="CA"/>
-<meta name="og:postal-code" content="94304"/>
-<meta name="og:country-name" content="USA"/>
---}}
 
 @yield('seo')

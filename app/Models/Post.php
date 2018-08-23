@@ -77,32 +77,46 @@ class Post extends Model
         return $this;
     }
 
-    // protected function publishOnSocialMedia()
-    // {
-    //     if (!$this->tweet_sent) {
-    //         if (!$this->concernsTweet()) {
-    //             dispatch(new SendTweet($this));
+    protected function publishOnSocialMedia()
+     {
+         if (!$this->tweet_sent) {
+             if (!$this->concernsTweet()) {
+                 dispatch(new SendTweet($this));
 
-    //             $this->tweet_sent = true;
-    //             $this->save();
+                 $this->tweet_sent = true;
+                 $this->save();
 
-    //             flash()->info('Tweet was sent');
-    //         }
-    //     }
+                 flash()->info('Tweet was sent');
+             }
+         }
 
-    //     if (!$this->posted_on_medium) {
-    //         dispatch(new PostOnMedium($this));
+         if (!$this->posted_on_medium) {
+             dispatch(new PostOnMedium($this));
 
-    //         $this->posted_on_medium = true;
-    //         $this->save();
+             $this->posted_on_medium = true;
+             $this->save();
 
-    //         flash()->info('Posted on medium');
-    //     }
-    // }
+             flash()->info('Posted on medium');
+         }
+     }
 
     public function getWordpressFullUrlAttribute(): string
     {
         return "/{$this->publish_date->format('Y/m')}/{$this->wp_post_name}";
+    }
+
+    public function getUrlAttribute(): string
+    {
+        return action('Front\PostsController@detail', $this->slug);
+    }
+
+    public function getPromotionalUrlAttribute(): string
+    {
+        if (!empty($this->external_url)) {
+            return $this->external_url;
+        }
+
+        return $this->url;
     }
 
     // public function searchableAs(): string
@@ -169,17 +183,4 @@ class Post extends Model
     //     });
     // }
 
-    public function getUrlAttribute(): string
-    {
-        return action('Front\PostsController@detail', $this->slug);
-    }
-
-    public function getPromotionalUrlAttribute(): string
-    {
-        if (!empty($this->external_url)) {
-            return $this->external_url;
-        }
-
-        return $this->url;
-    }
 }

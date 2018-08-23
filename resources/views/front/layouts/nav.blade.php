@@ -1,8 +1,7 @@
 <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" role="navigation">
       <div class="container">
-      <div itemscope itemtype="http://schema.org/WPHeader">
-        <a class="navbar-brand" href="#"><span itemprop="name">Start Bootstrap</span></a>
+        <a class="navbar-brand" href="#">Start Bootstrap</a>
       </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -10,20 +9,19 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" itemprop="url" href="#"><span itemprop="name">Home</span>
+              <a class="nav-link" href="#">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" itemprop="url" href="#"><span itemprop="name">About</span></a>
+              <a class="nav-link" href="#">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" itemprop="url" href="#"><span itemprop="name">Services</span></a>
+              <a class="nav-link" href="#">Services</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" itemprop="url" href="#"><span itemprop="name">Contact</span></a>
+              <a class="nav-link" href="#">Contact</a>
             </li>
           </ul>
         </div>
-      </div>
     </nav>

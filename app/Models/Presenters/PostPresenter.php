@@ -6,9 +6,9 @@ trait PostPresenter
 {
     public function getExcerptAttribute(): string
     {
-        if ($this->concernsTweet()) {
-            return '';
-        }
+//        if ($this->concernsTweet()) {
+//            return '';
+//        }
 
         $excerpt = trim($this->text);
 

@@ -11,8 +11,16 @@ let mix = require('laravel-mix');
  |	q
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-	.js('resources/assets/js/front/front.js', 'public/js')
+mix	.js('resources/assets/js/front/front.js', 'public/js')
     .js('resources/assets/js/back/back.js', 'public/js')
-
-    .sass('resources/assets/sass/front/front.scss', 'public/css');
+    .scripts([
+        'node_modules/startbootstrap-sb-admin/js/sb-admin.js'
+    ], 'public/js/vendor.js')
+    .styles([
+        'node_modules/startbootstrap-sb-admin/css/sb-admin.min.css'
+    ], 'public/css/vendor.css')
+    .sass('resources/assets/sass/back/back.scss', 'public/css')
+    .sass('resources/assets/sass/front/front.scss', 'public/css')
+    .copy('node_modules/startbootstrap-sb-admin/vendor/','public/vendor')
+    .copy('resources/assets/fonts/','public/fonts/')
+    .version();

@@ -1,4 +1,5 @@
 <?php
-Route::redirect('/', '/admin/posts');
+
+Route::resource('/dashboard', 'DashboardController');
 
 Route::resource('posts', 'PostsController');

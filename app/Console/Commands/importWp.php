@@ -45,9 +45,9 @@ class importWp extends Command
         collect($oldPosts)
             ->each(function (stdClass $oldPost) {
                 $post = Post::create([
-                    'title' => $oldPost->post_title,
+                    'title' => \Rabbit::zg2uni($oldPost->post_title),
                     'text' => $this->sanitizePostContent($oldPost->post_content),
-                    'wp_post_name' => $oldPost->post_name,
+                    'wp_post_name' => \Rabbit::zg2uni($oldPost->post_name),
                     'wp_id' => $oldPost->ID,
                     'publish_date' => Carbon::createFromFormat('Y-m-d H:i:s', $oldPost->post_date),
                     'published' => true,
@@ -76,7 +76,7 @@ class importWp extends Command
     {
         Redirect::create([
             'old_url' => $post->wordpress_full_url,
-            'new_url' => action('Front\PostsController@detail', $post->slug),
+            'new_url' => action('Front\PostsController@detail',\Rabbit::zg2uni($post->slug)),
         ]);
     }
 
@@ -90,8 +90,9 @@ class importWp extends Command
         $postContent = str_replace('http://mawgyuncity.net/wp-content/uploads', '/uploads', $postContent);
         $postContent = str_replace('http://mawgyuncity.tk/wp-content/uploads', '/uploads', $postContent);
         $postContent = str_replace('http://mgtalk.tk/wp-content/uploads', '/uploads', $postContent);
+        $toUnicode = \Rabbit::zg2uni($postContent);
 
-        return $postContent;
+        return $toUnicode;
     }
 
     protected function attachTags(stdClass $oldPost, Post $post)
@@ -102,10 +103,9 @@ class importWp extends Command
                  INNER JOIN mgc_term_relationships
                  ON mgc_term_relationships.term_taxonomy_id = mgc_term_taxonomy.term_taxonomy_id
                  WHERE taxonomy = 'post_tag' AND object_id = {$oldPost->ID}"));
-
         collect($tags)
             ->map(function (stdClass $tag) {
-                return $tag->name;
+                return \Rabbit::zg2uni($tag->name);
             })
             ->pipe(function (Collection $tags) use ($post) {
                 return $post->attachTags($tags);

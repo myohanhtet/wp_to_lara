@@ -48,9 +48,6 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware('web')
             ->namespace($this->namespace . '\\Back')
             ->group(function () {
-                Route::get('foo', function () {
-                    return view('welcome');
-                });
 
                 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
                 Route::post('/login', 'Auth\LoginController@login');

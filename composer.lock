@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6a8293db824afbf28eb0fee399d902f3",
+    "content-hash": "8491e3949ba5953d4f3f714256cb8e59",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1328,6 +1328,56 @@
                 "shell"
             ],
             "time": "2018-08-11T15:54:43+00:00"
+        },
+        {
+            "name": "rabbit-converter/rabbit-php",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Rabbit-Converter/Rabbit-PHP.git",
+                "reference": "420e7889054cdf821553c27a082116513666bc5e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Rabbit-Converter/Rabbit-PHP/zipball/420e7889054cdf821553c27a082116513666bc5e",
+                "reference": "420e7889054cdf821553c27a082116513666bc5e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/Rabbit.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nyan Lynn Htut",
+                    "email": "nyanlynnhtut@hexcores.com"
+                },
+                {
+                    "name": "Saturngod",
+                    "email": "me@saturngod.net"
+                }
+            ],
+            "description": "Another Zawgyi <=> Unicode Converter",
+            "homepage": "http://saturngod.github.io/Rabbit",
+            "keywords": [
+                "converter",
+                "myanmar-font",
+                "unicode",
+                "zawgyi"
+            ],
+            "time": "2018-07-26T06:38:33+00:00"
         },
         {
             "name": "ramsey/uuid",
@@ -4682,7 +4732,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "rabbit-converter/rabbit-php": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
